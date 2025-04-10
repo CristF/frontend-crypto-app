@@ -7,12 +7,12 @@ function Home() {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        console.log('Searching for:', search); // Placeholder for future API call
+        console.log('Searching for:', search);
     };
 
     return (
         <div className="min-h-screen bg-[#0864c7] px-4 py-6">
-            {/* Page Title */}
+            {/* Header Text */}
             <h1 className="text-white text-4xl font-semibold text-center mb-8 drop-shadow">
                 Crypto Tracker
             </h1>
@@ -50,7 +50,7 @@ function Home() {
                 </button>
             </div>
 
-            {/* Saved Cryptocurrencies Placeholder */}
+            {/* Saved Cryptocurrencies */}
             <h2 className="text-white text-2xl font-semibold text-center mb-8 mt-12 drop-shadow">Saved Cryptocurrencies</h2>
             <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mt-12">
                 <p className="text-gray-600">You haven’t saved any cryptocurrencies yet.</p>

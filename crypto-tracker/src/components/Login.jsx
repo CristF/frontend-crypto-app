@@ -15,7 +15,7 @@ function Login() {
         try {
             const response = await api.post('/user/login', formData);
             localStorage.setItem('token', response.data.token);
-            navigate('/home'); // Changed from /dashboard to /home
+            navigate('/home');
         } catch (error) {
             setError(error.response?.data?.message || 'Login failed');
         }
@@ -34,37 +34,37 @@ function Login() {
             >
                 <h2 className="text-2xl font-bold mb-6">Sign in</h2>
                 {error && <div className="text-red-500 mb-4">{error}</div>}
-
+                {/* Text Boxes */}
                 <input
                     type="text"
                     name="userName"
                     value={formData.userName}
                     onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
                     placeholder="Username"
-                    className="w-full p-2 mb-4 border rounded"
-                />
+                    className="w-full p-2 mb-4 border rounded"/>
                 <input
                     type="password"
                     name="password"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     placeholder="Password"
-                    className="w-full p-2 mb-4 border rounded"
-                />
+                    className="w-full p-2 mb-4 border rounded"/>
+
+                {/* Sign In Button */}
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-                >
+                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                     Sign In
                 </button>
 
-                {/* Divider */}
+                {/* Or Divider */}
                 <div className="flex items-center my-6">
                     <hr className="flex-grow border-t border-gray-300" />
                     <span className="mx-2 text-gray-600 font-bold">Or</span>
                     <hr className="flex-grow border-t border-gray-300" />
                 </div>
 
+                {/* Create Account Button */}
                 <button
                     type="button"
                     onClick={() => navigate('/register')}
