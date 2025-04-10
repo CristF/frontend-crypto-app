@@ -31,58 +31,75 @@ function Register() {
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center">
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-6">Register</h2>
+        <div className="flex items-center justify-center min-h-screen bg-[#0864c7]">
+            <form
+                onSubmit={handleSubmit}
+                className="bg-white p-8 rounded-lg shadow-md border border-gray-300 text-center w-80"
+            >
+                <h2 className="text-2xl font-bold mb-6">Create Account</h2>
                 {error && <div className="text-red-500 mb-4">{error}</div>}
-                <div className="space-y-4">
-                    <input
-                        type="text"
-                        name="userName"
-                        value={formData.userName}
-                        onChange={handleChange}
-                        placeholder="Username"
-                        className="w-full p-2 border rounded"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        className="w-full p-2 border rounded"
-                    />
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Password"
-                        className="w-full p-2 border rounded"
-                    />
-                    <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        placeholder="First Name"
-                        className="w-full p-2 border rounded"
-                    />
-                    <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        placeholder="Last Name"
-                        className="w-full p-2 border rounded"
-                    />
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-                    >
-                        Register
-                    </button>
+
+                <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    className="w-full p-2 mb-3 border rounded"
+                />
+                <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    className="w-full p-2 mb-3 border rounded"
+                />
+                <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    className="w-full p-2 mb-3 border rounded"
+                />
+                <input
+                    type="text"
+                    name="userName"
+                    value={formData.userName}
+                    onChange={handleChange}
+                    placeholder="Username"
+                    className="w-full p-2 mb-3 border rounded"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                    className="w-full p-2 mb-4 border rounded"
+                />
+                <button
+                    type="submit"
+                    className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+                >
+                    Create Account
+                </button>
+
+                {/* Divider and link back to login */}
+                <div className="flex items-center my-6">
+                    <hr className="flex-grow border-t border-gray-300" />
+                    <span className="mx-2 text-gray-600 font-bold">Or</span>
+                    <hr className="flex-grow border-t border-gray-300" />
                 </div>
+
+                <button
+                    type="button"
+                    onClick={() => navigate('/login')}
+                    className="w-full bg-gray-100 text-gray-800 p-2 rounded hover:bg-gray-200"
+                >
+                    Back to Login
+                </button>
             </form>
         </div>
     );
