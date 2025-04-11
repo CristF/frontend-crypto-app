@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 
 function Login() {
+    const { login } = useAuth();
     const [formData, setFormData] = useState({
         userName: '',
         password: ''
@@ -14,8 +16,15 @@ function Login() {
         e.preventDefault();
         try {
             const response = await api.post('/user/login', formData);
-            localStorage.setItem('token', response.data.token);
-            navigate('/home');
+            const { token } = response.data.user;
+            // First store the token
+            localStorage.setItem('token', token);
+            // Then update the auth context
+            await login(response.data.user);
+            // Add a small delay before navigation
+            setTimeout(() => {
+                navigate('/home', { replace: true });
+            }, 100);
         } catch (error) {
             setError(error.response?.data?.message || 'Login failed');
         }
