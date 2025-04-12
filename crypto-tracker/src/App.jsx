@@ -8,6 +8,7 @@ import Database from './components/Database';
 import Search from './components/Search';
 import ListDetail from './components/ListDetail';
 import EditList from './components/EditList';
+import VerifyEmail from './components/VerifyEmail';
 
 function ProtectedRoute({ children }) {
     const { user } = useAuth();
@@ -68,6 +69,9 @@ function App() {
                             <ProtectedRoute>
                                 <Search />
                             </ProtectedRoute>
+                        } />
+                        <Route path="/verify-email" element={
+                            <VerifyEmail />
                         } />
                     </Routes>
                 </div>

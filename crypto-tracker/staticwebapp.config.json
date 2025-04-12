@@ -38,6 +38,11 @@
             "route": "/search",
             "serve": "/index.html",
             "statusCode": 200
+        },
+        {
+            "route": "/verify-email",
+            "serve": "/index.html",
+            "statusCode": 200
         }
     ],
     "responseOverrides": {
